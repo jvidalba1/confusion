@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-// import { Media } from 'reactstrap';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class DishDetail extends Component {
+function RenderDish({dish}) {
+  if(dish != null){
+    return(
 
-  renderDish(dish) {
-    if(dish != null){
-      return(
+      <div className="col-6 col-md-5 m-1">
         <Card>
           <CardImg top src={dish.image} alt={dish.name} />
           <CardBody>
@@ -14,56 +13,45 @@ class DishDetail extends Component {
             <CardText>{dish.description}</CardText>
           </CardBody>
         </Card>
-      );
-    } else {
-      return(<div></div>);
-    }
+      </div>
+    );
+  } else {
+    return(<div></div>);
   }
+}
 
-  renderComments(dish){
-    if(dish != null){
-      var comments = dish.comments
+function RenderComments({comments}) {
+  return(
+    <div className="col-6 col-md-5 m-1">
+      <h1>Comments</h1>
+      <ul className="list-unstyled">
+        { comments.map((comment) => {
+          return(
+            <span key={comment.id}>
+              <li>{ comment.comment }</li>
+              <br></br>
+              <li>--{ comment.author }, { new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))) }</li>
+              <br></br>
+            </span>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
 
-      if(comments != null) {
-        return(
-          <ul className="list-unstyled">
-            { comments.map((comment) => {
-              return(
-                <span>
-                  <li>{ comment.comment }</li>
-                  <br></br>
-                  <li>--{ comment.author }, { new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))) }</li>
-                  <br></br>
-                </span>
-              );
-            })}
-          </ul>
-        );
-      }else {
-        return <div></div>;
-      }
-    }else{
-      return <div></div>;
-    }
-  }
-
-  render() {
+const DishDetail = (props) => {
+  if (props.dish != null ) {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-5 m-1">
-            { this.renderDish(this.props.dish )}
-          </div>
-
-          <div className="col-12 col-md-5 m-1">
-            <h4>
-              Comments
-            </h4>
-            { this.renderComments(this.props.dish) }
-          </div>
+          <RenderDish dish={props.dish}></RenderDish>
+          <RenderComments comments={props.dish.comments}></RenderComments>
         </div>
       </div>
     );
+  } else {
+    return <div></div>;
   }
 }
 
