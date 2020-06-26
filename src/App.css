@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -26,13 +26,48 @@
 
 .App-link {
   color: #61dafb;
+}*/
+
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
 }
 
-@keyframes App-logo-spin {
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+
+.footer{
+    background-color: #D1C4E9;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+}
+
+.jumbotron{
+  padding:70px 30px 70px 30px !important;
+  margin:0px auto !important;
+  background: #9575CD !important;
+  color:floralwhite !important;
+}
+
+address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+.navbar-dark {
+    background-color: #512DA8;
+}
+
+/*@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+}*/
