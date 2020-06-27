@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media, Card, CardTitle, CardBody, CardImg, CardText, CardImgOverlay } from 'reactstrap';
+import { Card, CardTitle, CardImg, CardImgOverlay } from 'reactstrap';
 
 function RenderMenuItem({ dish, onClick }){
   return(
