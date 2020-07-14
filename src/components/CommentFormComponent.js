@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Label, Row, Col } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // Comments form validations
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
